@@ -1,5 +1,9 @@
-import Home from '../components/core/Home';
-import Shop from '../components/core/Shop';
+import {lazy} from 'react';
+
+const Home = lazy(() => import('../components/core/Home'));
+const Shop = lazy(() => import('../components/core/Shop'));
+const Signin = lazy(() => import('../components/core/Signin'));
+const Signup = lazy(() => import('../components/core/Signup'));
 
 const routes = [
   {
@@ -9,6 +13,14 @@ const routes = [
   {
     path: '/shop',
     element: <Shop />
+  },
+  {
+    path: '/signin',
+    element: <Signin />
+  },
+  {
+    path: '/signup',
+    element: <Signup />
   }
 ];
 export default routes;
