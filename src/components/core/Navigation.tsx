@@ -82,7 +82,7 @@ const Navigation: React.FC = () => {
     }
     currentNav = e.key;
   };
-  return <Menu onClick={onClick} selectedKeys={[currentNav]} mode='horizontal' items={items} />;
+  return <Menu onClick={onClick} selectedKeys={[currentNav]} mode="horizontal" items={items} />;
 };
 
 export default Navigation;

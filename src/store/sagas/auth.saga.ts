@@ -23,9 +23,7 @@ function* handleSignup(action: SignupAction): any {
 
 function* handleSignin(action: SigninAction): any {
   try {
-    console.log('=====');
     let response = yield axios.post(`${API}/signin`, action.payload);
-    console.log(response);
     localStorage.setItem('jwt', JSON.stringify(response.data));
     yield put(signinSuccess());
   } catch (error: any) {
