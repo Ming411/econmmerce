@@ -4,6 +4,8 @@ const Home = lazy(() => import('../components/core/Home'));
 const Shop = lazy(() => import('../components/core/Shop'));
 const Signin = lazy(() => import('../components/core/Signin'));
 const Signup = lazy(() => import('../components/core/Signup'));
+const PrivateRoute = lazy(() => import('../components/admin/PrivateRoute'));
+const AddCategory = lazy(() => import('../components/admin/AddCategory'));
 
 const routes = [
   {
@@ -21,6 +23,18 @@ const routes = [
   {
     path: '/signup',
     element: <Signup />
+  },
+  {
+    path: '/user/dashboard',
+    element: <PrivateRoute />
+  },
+  {
+    path: '/admin/dashboard',
+    element: <PrivateRoute />
+  },
+  {
+    path: '/create/category',
+    element: <AddCategory />
   }
 ];
 export default routes;
