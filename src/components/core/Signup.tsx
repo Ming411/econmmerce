@@ -27,11 +27,11 @@ const Signup = () => {
     if (auth.signup.loaded && auth.signup.success) {
       return (
         <Result
-          status="success"
-          title="注册成功"
+          status='success'
+          title='注册成功'
           extra={
-            <Button type="primary">
-              <Link to="/signin">登录</Link>
+            <Button type='primary'>
+              <Link to='/signin'>登录</Link>
             </Button>
           }
         />
@@ -41,7 +41,7 @@ const Signup = () => {
   // 失败 显示注册失败提示信息
   const showError = () => {
     if (auth.signup.loaded && !auth.signup.success) {
-      return <Result status="warning" title="注册失败" subTitle={auth.signup.message} />;
+      return <Result status='warning' title='注册失败' subTitle={auth.signup.message} />;
     }
   };
   // 离开页面重置状态
@@ -50,22 +50,22 @@ const Signup = () => {
       // 组件卸载后重置表单
       dispatch(resetSignup());
     };
-  }, []);
+  }, [dispatch]);
 
   const signupForm = () => (
     <Form form={form} onFinish={onFinish}>
-      <Form.Item label="昵称" name="name">
-        <Input autoComplete="off" />
+      <Form.Item label='昵称' name='name'>
+        <Input autoComplete='off' />
       </Form.Item>
-      <Form.Item label="邮箱" name="email">
-        <Input autoComplete="off" />
+      <Form.Item label='邮箱' name='email'>
+        <Input autoComplete='off' />
       </Form.Item>
-      <Form.Item label="密码" name="password">
-        <Input.Password autoComplete="off" />
+      <Form.Item label='密码' name='password'>
+        <Input.Password autoComplete='off' />
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type='primary' htmlType='submit'>
           注册
         </Button>
       </Form.Item>
@@ -73,7 +73,7 @@ const Signup = () => {
   );
 
   return (
-    <Layout title="注册" subtitle="">
+    <Layout title='注册' subtitle=''>
       {/* 成功 */}
       {showSuccess()}
       {/* 失败 */}

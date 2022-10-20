@@ -66,6 +66,8 @@ const Navigation: React.FC = () => {
     currentNav = 'signup';
   } else if (location.pathname === getDashboardUrl()) {
     currentNav = 'dashboard';
+  } else {
+    currentNav = '';
   }
   // 点击切换tab
   const onClick: MenuProps['onClick'] = e => {
@@ -82,7 +84,7 @@ const Navigation: React.FC = () => {
     }
     currentNav = e.key;
   };
-  return <Menu onClick={onClick} selectedKeys={[currentNav]} mode="horizontal" items={items} />;
+  return <Menu onClick={onClick} selectedKeys={[currentNav]} mode='horizontal' items={items} />;
 };
 
 export default Navigation;

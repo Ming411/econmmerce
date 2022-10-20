@@ -1,6 +1,6 @@
 import {Col, Descriptions, Menu, Row} from 'antd';
-import React, {useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {ShoppingCartOutlined, UserOutlined, OrderedListOutlined} from '@ant-design/icons';
 import Layout from '../core/Layout';
 import {Typography} from 'antd';
@@ -12,7 +12,7 @@ const {Title} = Typography;
 const items: MenuProps['items'] = [
   {
     label: '添加分类',
-    key: 'classify',
+    key: 'category',
     icon: <ShoppingCartOutlined />
   },
   {
@@ -31,18 +31,21 @@ const AdminDashboard = () => {
     user: {name, email}
   } = isAuth() as Jwt;
   const AdminLinks = () => {
-    const [current, setCurrent] = useState('classify');
+    // const [current, setCurrent] = useState('category');
     let navigate = useNavigate();
     const onClick: MenuProps['onClick'] = e => {
-      if (e.key === 'classify') {
+      if (e.key === 'category') {
         navigate('/create/category');
+      } else if (e.key === 'product') {
+        navigate('/create/product');
       }
-      setCurrent(e.key);
+      // setCurrent(e.key);
     };
     return (
       <>
         <Title level={5}>管理员链接</Title>
-        <Menu onClick={onClick} selectedKeys={[current]} items={items} />
+        {/* <Menu onClick={onClick} selectedKeys={[current]} items={items} /> */}
+        <Menu onClick={onClick} items={items} />
       </>
     );
   };

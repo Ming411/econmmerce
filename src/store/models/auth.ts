@@ -1,4 +1,4 @@
-// 这个问渐渐专门用于定义数据类型相关
+// 用于定义后端返回的数据类型
 
 export interface User {
   _id: string;
