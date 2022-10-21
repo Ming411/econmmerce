@@ -12,3 +12,8 @@ export interface Product {
   shipping: boolean;
   createdAt: string;
 }
+export interface Price {
+  id: number;
+  name: string;
+  array: [number?, number?];
+}

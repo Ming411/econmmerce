@@ -1,17 +1,20 @@
 import {Select, Form, Input, Button, Divider, Row, Col} from 'antd';
-import Item from 'antd/lib/list/Item';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCategory} from '../../store/actions/category.actions';
 import {searchProduct} from '../../store/actions/product.actions';
 import {AppState} from '../../store/reducers';
 import {CategoryState} from '../../store/reducers/category.reducer';
+import {ProductState} from '../../store/reducers/product.reducer';
 import ProductItem from './ProductItem';
 const {Option} = Select;
 const Search = () => {
   const dispatch = useDispatch();
 
   const {category} = useSelector<AppState, CategoryState>(state => state.category);
+
+  const {search} = useSelector<AppState, ProductState>(state => state.product);
+
   // 防止刷新页面数据丢失，所以要重新获取
   useEffect(() => {
     dispatch(getCategory());
@@ -19,6 +22,7 @@ const Search = () => {
 
   const onFinish = (value: {category: string; search: string}) => {
     dispatch(searchProduct({category: value.category, search: value.search}));
+    // console.log(search);
   };
 
   return (
@@ -47,7 +51,11 @@ const Search = () => {
       </Form>
       <Divider />
       <Row gutter={[16, 16]}>
-        <Col span='6'>{/* <ProductItem /> */}</Col>
+        {search.map(item => (
+          <Col span='6' key={item._id}>
+            <ProductItem product={item} />
+          </Col>
+        ))}
       </Row>
     </>
   );

@@ -90,3 +90,9 @@
   width: auto;
   max-width: 100%;
 }
+.checkBoxFilter {
+  width: 100%;
+}
+.checkBoxFilter .ant-checkbox-group-item {
+  display: flex;
+}

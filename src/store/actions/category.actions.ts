@@ -18,5 +18,6 @@ export const getCategorySuccess = (payload: Category[]): GetCategorySuccessActio
   type: GET_CATEGORY_SUCCESS,
   payload
 });
+
 // 定义联合类型
 export type CategoryUnionType = GetCategoryAction | GetCategorySuccessAction;
