@@ -11,13 +11,13 @@ const Product = () => {
   // console.log(productId);
   useEffect(() => {
     dispatch(getProductById({productId}));
-  }, [dispatch]);
+  }, [dispatch, productId]);
 
   return (
-    <Layout title='商品名称' subtitle='商品描述'>
+    <Layout title="商品名称" subtitle="商品描述">
       <Row gutter={36}>
-        <Col span='18'>1</Col>
-        <Col span='6'>2</Col>
+        <Col span="18">1</Col>
+        <Col span="6">2</Col>
       </Row>
     </Layout>
   );

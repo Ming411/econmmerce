@@ -1,4 +1,3 @@
-import {act} from 'react-dom/test-utils';
 import {
   FILTER_PRODUCT,
   FILTER_PRODUCT_SUCCESS,

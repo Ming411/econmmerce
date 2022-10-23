@@ -107,7 +107,7 @@ export const GET_PRODUCT_BY_ID_SUCCESS = 'GET_PRODUCT_BY_ID_SUCCESS';
 export interface GetProductByIdAction {
   type: typeof GET_PRODUCT_BY_ID;
   payload: {
-    productId: string;
+    productId: any;
   };
 }
 export interface GetProductByIdSuccessAction {
@@ -115,7 +115,7 @@ export interface GetProductByIdSuccessAction {
   payload: Product;
 }
 
-export const getProductById = (payload: {productId: string}): GetProductByIdAction => ({
+export const getProductById = (payload: {productId: any}): GetProductByIdAction => ({
   type: GET_PRODUCT_BY_ID,
   payload
 });
