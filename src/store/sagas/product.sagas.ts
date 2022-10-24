@@ -51,9 +51,12 @@ function* handleFilterProduct(action: FilterProductAction): any {
 }
 function* handleGetProductById({payload}: GetProductByIdAction): any {
   try {
-    let response = yield axios.get(`${API}/products/${payload.productId}`);
+    let response = yield axios.get(`${API}/product/${payload.productId}`);
+    // console.log(response.data);
     yield put(getProductByIdSuccess(response.data));
-  } catch (e) {}
+  } catch (e) {
+    // console.log(e);
+  }
 }
 
 export default function* productSaga() {

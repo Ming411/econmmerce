@@ -133,6 +133,7 @@ export default function productReducer(state = initialState, action: ProductUnio
       return {
         ...state,
         product: {
+          ...state.product,
           loaded: false,
           success: false
         }
@@ -140,7 +141,7 @@ export default function productReducer(state = initialState, action: ProductUnio
     case GET_PRODUCT_BY_ID_SUCCESS:
       return {
         ...state,
-        filter: {
+        product: {
           loaded: true,
           success: true,
           result: action.payload

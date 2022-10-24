@@ -96,3 +96,7 @@
 .checkBoxFilter .ant-checkbox-group-item {
   display: flex;
 }
+.ant-image-img {
+  width: auto;
+  max-width: 100%;
+}

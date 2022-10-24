@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {useNavigate, useLocation} from 'react-router';
 import {Menu} from 'antd';
 import type {MenuProps} from 'antd';
 import {isAuth} from '../../helpers/auth';
 import {Jwt} from '../../store/models/auth';
+import {itemCount} from '../../helpers/cart';
+import {TotalContext} from './AnotherStore';
 
 let currentNav = 'home';
 const Navigation: React.FC = () => {
+  const [count, setCount] = useContext(TotalContext);
+  useEffect(() => {
+    setCount(itemCount());
+  }, [count]);
   const items: MenuProps['items'] = !isAuth()
     ? [
         {
@@ -24,6 +30,10 @@ const Navigation: React.FC = () => {
         {
           label: '注册',
           key: 'signup'
+        },
+        {
+          label: `购物车-${count}`,
+          key: 'cart'
         }
       ]
     : [
@@ -38,6 +48,10 @@ const Navigation: React.FC = () => {
         {
           label: 'dashboard',
           key: 'dashboard'
+        },
+        {
+          label: `购物车-${count}`,
+          key: 'cart'
         }
       ];
 
@@ -66,6 +80,8 @@ const Navigation: React.FC = () => {
     currentNav = 'signup';
   } else if (location.pathname === getDashboardUrl()) {
     currentNav = 'dashboard';
+  } else if (location.pathname === '/cart') {
+    currentNav = 'cart';
   } else {
     currentNav = '';
   }
@@ -81,6 +97,8 @@ const Navigation: React.FC = () => {
       navigate('/signup');
     } else if (e.key === 'dashboard') {
       navigate(getDashboardUrl());
+    } else if (e.key === 'cart') {
+      navigate('/cart');
     }
     currentNav = e.key;
   };

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux';
 // import App from './App';
 import {HashRouter} from 'react-router-dom';
+import AnotherStore from './components/core/AnotherStore';
 // import 'default-passive-events';
 import Routes from './Routes';
 import store from './store/index';
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <HashRouter>
     <Provider store={store}>
-      <Routes />
+      <AnotherStore>
+        <Routes />
+      </AnotherStore>
     </Provider>
   </HashRouter>
 );

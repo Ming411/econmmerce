@@ -8,6 +8,8 @@ const PrivateRoute = lazy(() => import('../components/admin/PrivateRoute'));
 // const AddCategory = lazy(() => import('../components/admin/AddCategory'));
 const AdminRoute = lazy(() => import('../components/admin/AdminRoute'));
 const Product = lazy(() => import('../components/core/Product'));
+const Cart = lazy(() => import('../components/core/Cart'));
+const Success = lazy(() => import('../components/core/Success'));
 
 const routes = [
   {
@@ -46,6 +48,14 @@ const routes = [
   {
     path: '/product/:productId',
     element: <Product />
+  },
+  {
+    path: '/cart',
+    element: <Cart />
+  },
+  {
+    path: '/success',
+    element: <Success />
   }
 ];
 export default routes;
